@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<style>
+		a{
+			display: inline-block;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+		var demoList = `
+			acc
+			actionMethods
+			addConfig
+			batDeleteUrl
+			columns
+			componentOrder
+			downloadable
+			locale
+			btn-style
+		`;
+		var params = demoList.split(/\s/).filter(item=>!!item.trim());
+		document.querySelector('div').innerHTML = params.map(name=>`<a href="/demoViewer?demo=${name}">${name}</a>`).join('');
+	</script>
+</body>
+</html>
