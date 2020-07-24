@@ -67,22 +67,6 @@ export default {
 			 */
 			ignoreEmptySearchParam: true,
 			/**
-			 * @param {Number} parallelCount 全量下载表格时，并行请求数
-			 */
-			parallelCount: 6,
-			/**
-			 * 全量下载表格时，根据下载速度，动态调整最大并行数
-			 */
-			dynamicParallelCount: false,
-			/**
-			 * @param {Number} downloadTimeout 全量下载表格时，每页的下载时间
-			 */
-			downloadTimeout: 30000,
-			/**
-			 * @param {Boolean} downloadAllFromJustOnePage 全量下载表格时，所有数据从一页一次性下载
-			 */
-			downloadAllFromJustOnePage: false,
-			/**
 			 * @param {Boolean} labelVisible 搜索区每个输入框是不是要显示名字
 			 */
 			labelVisible: true,
@@ -118,14 +102,6 @@ export default {
 			 * @param {String} tip 顶部显示的提示
 			 */
 			tip: '',
-			/**
-			 * @param {Boolean} downloadable 显示下载按钮
-			 */
-			downloadable: false,
-			/**
-			 * @param {String} downloadurl 显示自定义链接的按钮
-			 */
-			downloadurl: '',
 			/**
 			 * @param {Array} searchFilter 搜索表单配置
 			 */
