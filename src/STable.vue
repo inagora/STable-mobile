@@ -8,6 +8,7 @@
 					:ref="com.name"
 				/>
 			</template>
+			<left-panel />
 		</div>
 	</div>
 </template>
@@ -18,8 +19,9 @@
 import XTitle from './Title.vue';
 import XTip from './Tip.vue';
 import XToolbar from './Toolbar.vue';
-import XSearch from './Search.vue';
+// import XSearch from './Search.vue';
 import XTable from './table/index.vue';
+import LeftPanel from './com/leftpanel.vue';
 import {hashCode, Console, $type} from "./util/util.js";
 import Ajax from './util/Ajax.js';
 
@@ -32,6 +34,7 @@ export default {
 			required: true
 		}
 	},
+	components: {LeftPanel},
 	provide() {
 		let conf = Object.assign({
 			/**
@@ -457,14 +460,14 @@ export default {
 			title: XTitle,
 			tip: XTip,
 			toolbar: XToolbar,
-			search: XSearch,
+			// search: XSearch,
 			table: XTable
 		};
 		let order = [
 			'title', 
 			'tip', 
 			'toolbar', 
-			'search', 
+			// 'search', 
 			'table',
 			'pagination'
 		];
@@ -482,11 +485,12 @@ export default {
 		stableCount++;
 
 		setTimeout(()=>{
-			if(this.config.searchFilter){
-				this.$refs.search[0].$el.querySelector('[type=submit]').click();
-			} else {
-				this.$refs.table[0].load();
-			}
+			// if(this.config.searchFilter){
+			// 	this.$refs.search[0].$el.querySelector('[type=submit]').click();
+			// } else {
+			// 	this.$refs.table[0].load();
+			// }
+			this.$refs.table[0].load();
 		}, 0);
 	},
 	methods: {
