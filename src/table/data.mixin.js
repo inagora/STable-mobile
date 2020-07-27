@@ -1,6 +1,5 @@
-import Progressbar from '../com/Progressbar';
 export default {
-	inject: ['store', 'records', 'params', 'url', 'actionMethods',  'pageMode','pageIndex', 'parallelCount', 'dynamicParallelCount', 'downloadTimeout', 'downloadAllFromJustOnePage','sublistAt', 'ajax'],
+	inject: ['store', 'records', 'params', 'url', 'actionMethods',  'pageMode','pageIndex','sublistAt', 'ajax'],
 	data() {
 		return {
 			flymanVisible: false,
@@ -231,8 +230,6 @@ export default {
 		
 		getAllOnNormal() {
 			return new Promise((resolve)=>{
-				let pb = new Progressbar({});
-				pb.update(0, '开始下载数据');
 				let list = [];
 				let jobList = [];
 				let retryList = [];
@@ -290,7 +287,6 @@ export default {
 							per = 99;
 						else
 							per = Math.floor(per);
-						pb.update(per/100, `已下载${loadedCount}页，共${pageCount}页`);
 					}, function(){
 						jobList.splice(jobList.indexOf(job), 1);
 						//jobList.push(createJob(pno));
@@ -313,7 +309,6 @@ export default {
 					}
 					
 					if(retryList.length<=0 && jobList.length<=0 && pnoIdx>=pageCount) {
-						pb.destroy();
 						let ret = [];
 						for(let i=1;i<=pageCount;i++){
 							if(!list[i])
@@ -338,10 +333,7 @@ export default {
 		//因为瀑布流模式下，每一页的id依赖上一个页面，所以没办法并行请求，也不知道总共有多少页
 		getAllOnWaterfall(){
 			return new Promise((resolve, reject)=>{
-				let pb = new Progressbar({});
-				pb.update(0, '数据下载中，请稍候...');
 				let list = [];
-				let loadedCount = 0;
 				let pageIndex = this.pageIndex;
 				let startJob = (id)=>{
 					let params = Object.assign({}, this.params, this.store.searchParams);
@@ -380,7 +372,6 @@ export default {
 									});
 								});
 								resolve(list);
-								pb.destroy();
 							} else {
 								list = list.concat(res.data.list);
 								if(res.data.list.length < params.count || this.downloadAllFromJustOnePage) {
@@ -393,12 +384,9 @@ export default {
 										});
 									});
 									resolve(list);
-									pb.destroy();
 								} else {
 									id = list[list.length-1][pageIndex];
 									startJob(id);
-									loadedCount++;
-									pb.update(0, `已下载 ${loadedCount} 页数据，请继续等待...`);
 								}
 							}
 						}

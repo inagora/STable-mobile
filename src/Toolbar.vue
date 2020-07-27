@@ -18,7 +18,7 @@
 
 <script>
 import XButton from './com/Button.vue';
-import {loadJs, isPC} from './util/util.js';
+import {loadJs} from './util/util.js';
 import {create} from './com/Dialog.js';
 import qtip from './com/qtip';
 import XForm from './form/index.vue';
@@ -35,8 +35,6 @@ export default {
 		batDeleteUrl: {
 			default: ''
 		},
-		downloadable: 'downloadable',
-		downloadurl: 'downloadurl',
 		actionMethods: 'actionMethods',
 		store: 'store',
 		idIndex: 'idIndex',
@@ -49,42 +47,9 @@ export default {
 		if(this.toolbar && Array.isArray(this.toolbar)) {
 			tb = Array.from(this.toolbar);
 		}
-		if((this.addUrl || this.batDeleteUrl || this.downloadable) && isPC()) {
+		if(this.addUrl || this.batDeleteUrl) {
 			if(tb.length>0)
 				tb.unshift('|');
-			if(this.downloadable=='all' || this.downloadable===true) {
-				// 如果设置了自定义的下载链接
-				if(this.downloadurl) {
-					const downloadurl = this.downloadurl;
-					tb.unshift({
-						type: 'primary',
-						text: this.locale.toolbar.exprotDefaultText,
-						icon: 'st-icon st-icon-download',
-						click(){
-							window.open(downloadurl, '_blank');
-						}
-					});
-				} else {
-					tb.unshift({
-						type: 'primary',
-						text: this.locale.toolbar.exportAllBtnText,
-						icon: 'st-icon st-icon-download',
-						click(){
-							self.downloadAll();
-						}
-					});
-				}
-			}
-			if(this.downloadable=='single' || this.downloadable===true) {
-				tb.unshift({
-					type: 'primary',
-					text: this.locale.toolbar.exportBtnText,
-					icon: 'st-icon st-icon-download',
-					click(){
-						self.download();
-					}
-				});
-			}
 			if(this.batDeleteUrl){
 				tb.unshift({
 					type: 'danger',

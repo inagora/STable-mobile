@@ -1,0 +1,11 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+        "targets": {
+          "browsers": ["chrome >= 56", "safari >= 11"]
+        }
+      }],
+      "@vue/babel-preset-jsx"
+    ],
+      "comments": false
+  }

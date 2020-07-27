@@ -113,7 +113,6 @@
 			}"
 		></div>
 
-		<x-flyman :visible="flymanVisible" />
 	</div>
 </template>
 
@@ -121,7 +120,6 @@
 import XHead from './Head.vue';
 import XBody from './Body.vue';
 import XMenu from './Menu';
-import XFlyman from '../com/FlyMan.vue';
 import {isFirefox} from '../util/util';
 import data from './data.mixin.js';
 import drag from './drag.mixin.js';
@@ -129,7 +127,7 @@ import resize from './resize.mixin.js';
 import {create as createDia} from '../com/Dialog';
 import qtip from '../com/qtip.js';
 export default {
-	components: {XHead, XBody, XFlyman},
+	components: {XHead, XBody},
 	mixins: [data, drag, resize],
 	inject: ['store', 'rowNumberVisible', 'selectMode', 'layoutMode', 'ajax', 'deleteUrl', 'updateUrl','updateConfig', 'idIndex', 'locale'],
 	data() {

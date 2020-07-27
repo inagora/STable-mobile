@@ -458,8 +458,7 @@ export default {
 			tip: XTip,
 			toolbar: XToolbar,
 			search: XSearch,
-			table: XTable,
-			pagination: XPagination
+			table: XTable
 		};
 		let order = [
 			'title', 

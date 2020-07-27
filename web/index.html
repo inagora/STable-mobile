@@ -14,57 +14,14 @@
 		display: flex;
 		flex-direction: column;
 	}
-	.header{
-		height: 64px;
-		border-bottom: 1px solid #eee;
-	}
-	.body{
-		flex: 1;
-		display: flex;
-	}
-	.nav{
-		width: 200px;
-		border-right: 1px solid #eee;
-	}
-	#box{
-		flex: 1;
-	}
 	</style>
 </head>
 <body>
-	<div class="header">header</div>
 	<div class="body">
-		<div class="nav">nav</div>
 		<div id="box"></div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script src="/STable.min.js"></script>
-	<!-- <script>
-	STable.init({
-		el: '#box',
-		url: '/ajaxWaterfall',
-		pageMode: 'waterfall',
-		columns: [
-			'name',
-			'movieType',
-			{
-				dataIndex: 'actors',
-				text: 'actors'
-			}
-		],
-		sublistAt: ['actors'],
-		downloadable: true,
-		toolbar: [
-			{
-				text:'hoho',
-				id: 'e12',
-				click(){
-					console.log(this.getToolbarBtn('e12'));
-				}
-			}
-		]
-	});
-	</script> -->
 	<script>
 	STable.init({
 		el: '#box',
@@ -77,31 +34,6 @@
 		ajaxSetting: {
 			contentType: 'application/x-www-form-urlencoded'
 		},
-		// searchFilter: [
-		// {
-		// 	type: 'input',
-		// 	label: '姓名',
-		// 	name: 'uname',
-		// 	value: 'pjc',
-		// 	required: true
-		// },
-		// {
-		// 	type: 'input',
-		// 	label: '年龄',
-		// 	name: 'age',
-		// 	value: '25',
-		// 	required: true
-		// },
-		// {
-		// 	type: 'combobox',
-		// 	label: '影片类型',
-		// 	name: 'selectname',
-		// 	options: [
-		// 		{value: 'xiju',label: '喜剧'},
-		// 		{value: 'xuanyi',label: '悬疑'}
-		// 	],
-		// }
-		// ],
 		searchFilter: [
 			{
 				label: '名字',
@@ -224,11 +156,6 @@
 				type: 'date'
 			}
 		],
-		// searchFilter: {
-		// 	name: '名称',
-		// 	age: '年龄',
-		// 	sex: '性别'
-		// },
 		columns: [
 			{
 				header: 'id',
@@ -237,15 +164,6 @@
 				locked: true,
 				sortable: true
 			},
-			// {
-			// 	header: '海报',
-			// 	dataIndex: 'img',
-			// 	width: 120,
-			// 	render(record){
-			// 		let img = record.img;
-			// 		return `<div class="poster" style="background-image:url(${img.replace(/_\d+X\d+(X2)?\.jpg/,'_640X360X2.jpg')})"></div>`;
-			// 	}
-			// },
 			{
 				header: '名字',
 				dataIndex: 'name',
@@ -315,33 +233,15 @@
 		toolbar: [
 			{text:'abc'},
 			{text:'测试', size:'large'},
-			{text:'测试', size:'large', icon:'st-iconfont st-icon-lock'},
 			{text:'测试', type: 'primary', size:'large'},
-			{text:'测试', type: 'primary', size:'large', icon:'st-iconfont st-icon-lock'},
-			{text:'测试', type: 'primary',},
 			{text:'测试', type: 'primary', icon:'st-iconfont st-icon-lock'},
-			{text:'测试', type: 'success', size:'small'},
-			{text:'测试', type: 'success', size:'small', icon:'st-iconfont st-icon-lock'},
-			{text:'测试', type: 'primary', size:'large'},
-			{text:'测试', type: 'primary', size:'large', icon:'st-iconfont st-icon-eye'},
-			{text:'测试', type: 'primary',},
-			{text:'测试', type: 'primary', icon:'st-iconfont st-icon-eye'},
-			{text:'测试', type: 'success', size:'small'},
-			{text:'测试', type: 'success', size:'small', icon:'st-iconfont st-icon-eye'},
-			{text:'测试', type: 'danger'},
-			{text:'测试', type: 'danger', icon:'st-iconfont st-icon-lock'},
-			{text:'测试', type: 'info'},
-			{text:'测试', type: 'info', icon:'st-iconfont st-icon-lock'},
-			{text:'测试', type: 'warning'},
-			{text:'测试', type: 'warning', icon:'st-iconfont st-icon-lock'},
-			{text:'测试', type: 'link'}
+			{text:'测试', type: 'success', size:'small'}
 		],
 		updateUrl: '/',
 		addUrl: '/',
 		batDeleteUrl: '/',
 		idIndex: 'id',
 		deleteUrl: '/ajaxDel',
-		downloadable: true,
 		editConfig: [
 			{
 				name: 'name',
