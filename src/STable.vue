@@ -21,7 +21,7 @@ import XTip from './Tip.vue';
 import XToolbar from './Toolbar.vue';
 // import XSearch from './Search.vue';
 import XTable from './table/index.vue';
-import LeftPanel from './com/leftpanel.vue';
+import LeftPanel from './com/Leftpanel.vue';
 import {hashCode, Console, $type} from "./util/util.js";
 import Ajax from './util/Ajax.js';
 

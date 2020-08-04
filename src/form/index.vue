@@ -434,6 +434,9 @@ export default {
 	&-inline &-com{
 		display: inline-block;
 	}
+	&-field {
+		padding: 5px 0;
+	}
 
 	&-v{
 		.st-form-label{
@@ -442,6 +445,7 @@ export default {
 		.st-form-field{
 			display: flex;
 			align-items: flex-start;
+			padding: 15px 0;
 		}
 		.st-form-com{
 			flex: 1;

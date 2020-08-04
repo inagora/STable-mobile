@@ -7,7 +7,8 @@
 			}"
 			@click="triggerClick" />
 		<span>
-			<x-search />
+			<x-search 
+				@closepanel="close" />
 		</span>
 	</div>
 </template>
@@ -25,6 +26,9 @@ export default {
 	methods: {
 		triggerClick() {
 			this.showPanel = true;
+		},
+		close() {
+			this.showPanel = false;
 		}
 	}
 };
@@ -34,13 +38,13 @@ export default {
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: #ffffff;
 	z-index: 9;
-	transform: translateX(-100%);
+	transform: translateX(100%);
 	transition: all 0.3s linear;
 	&-search-btn {
 		position: absolute;
-		right: -100%;
+		right: 100%;
 	}
 	&-show {
 		transform: translateX(0);

@@ -14,22 +14,30 @@
 			:label-visible="labelVisible"
 			@submit="search"
 		>
-			<x-button
-				:conf="{
-					nativeType: 'submit',
-					type: 'primary',
-					icon: 'st-icon st-icon-search',
-					text: locale.search
-				}"
-			/>
-			<x-button
-				v-if="searchResetable"
-				:conf="{
-					cls: 'st-search-reset-btn',
-					text: locale.reset
-				}"
-				@click.prevent="reset"
-			/>
+			<div class="st-search-btns">
+				<x-button
+					:conf="{
+						nativeType: 'submit',
+						type: 'primary',
+						icon: 'st-icon st-icon-search',
+						text: locale.search
+					}"
+				/>
+				<x-button
+					v-if="searchResetable"
+					:conf="{
+						cls: 'st-search-reset-btn',
+						text: locale.reset
+					}"
+					@click.prevent="reset"
+				/>
+				<x-button
+					:conf="{
+						text: '取消'
+					}"
+					@click="closepanel"
+				/>
+			</div>
 		</x-form>
 	</div>
 </template>
@@ -64,6 +72,10 @@ export default {
 				return;
 			this.store.searchParams = searchParams;
 			this.store.$emit('load', {reset: true});
+			this.closepanel();
+		},
+		closepanel() {
+			this.$emit('closepanel');
 		},
 		reset() {
 			this.$refs.form.reset();
@@ -87,11 +99,22 @@ export default {
 
 <style lang="scss">
 .st-search{
-	border-bottom: 1px solid #d0d0d0;
 	padding: 10px 0 0 10px;
 
 	&-reset-btn{
 		margin-left: 10px;
+	}
+	&-btns {
+		width: 100%;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		border-top: 1px solid #e8eaec;
+		height: 60px;
+		line-height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
 	}
 }
 </style>
