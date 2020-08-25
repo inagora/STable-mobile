@@ -3,12 +3,16 @@
 		<x-button 
 			:conf="{
 				text: '筛选',
-				cls: 'st-leftpanel-search-btn'
+				cls: 'st-leftpanel-search-btn',
+				icon: 'st-icon st-icon-search',
+				type: 'primary'
 			}"
-			@click="triggerClick" />
+			@click="triggerClick" 
+		/>
 		<span>
 			<x-search 
-				@closepanel="close" />
+				@closepanel="close" 
+			/>
 		</span>
 	</div>
 </template>
@@ -44,7 +48,8 @@ export default {
 	transition: all 0.3s linear;
 	&-search-btn {
 		position: absolute;
-		right: 100%;
+		right: 104%;
+		top: 2%;
 	}
 	&-show {
 		transform: translateX(0);

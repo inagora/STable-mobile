@@ -112,7 +112,6 @@
 				left: endResizePos+'px'
 			}"
 		></div>
-
 	</div>
 </template>
 

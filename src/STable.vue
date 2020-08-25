@@ -28,13 +28,13 @@ import Ajax from './util/Ajax.js';
 var defaultLang = require('./lang/zh.js');
 let stableCount = 0;
 export default {
+	components: {LeftPanel},
 	props: {
 		config: {
 			type: Object,
 			required: true
 		}
 	},
-	components: {LeftPanel},
 	provide() {
 		let conf = Object.assign({
 			/**
